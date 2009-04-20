@@ -68,7 +68,7 @@ module Ocher
         module_eval <<-EOS
           def default_access_context
             @default_access_context ||= {}
-            @default_access_context[:user] = send(:current_user) if respond_to?(:current_user)
+            @default_access_context[:user] = send(:current_user)
             @default_access_context[:page_owner] = #{options[:page_owner] || 'nil'}
             if action_owners.nil? || action_owners.empty?
               @default_access_context[:owner] = #{eval_owner}
